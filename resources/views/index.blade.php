@@ -291,15 +291,16 @@
   </body>
   <script type="text/javascript">
     $(function() {
-    
+
         var start = moment().subtract(29, 'days');
         var end = moment();
-    
+        var max = moment().subtract(1, 'days');
         function cb(start, end) {
             $('#reportrange span').html(start.format('DD MMMM YYYY') + ' - ' + end.format('DD MMMM YYYY'));
         }
     
         $('#reportrange').daterangepicker({
+            maxDate: max,
             startDate: start,
             endDate: end,
             ranges: {
