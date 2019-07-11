@@ -74,13 +74,13 @@
         <div class="right_col" role="main">
           <!-- top tiles -->
           <div class="row tile_count">
-            <div class="col-md-9 col-sm-4 col-xs-6 tile_stats_count">
+            <div class="col-md-8 col-sm-4 col-xs-6 tile_stats_count">
               <div class="count new_font">Dashboard</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="x_panel">
-                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; width: 100%">
-                  <i class="fa fa-calendar"></i>&nbsp; Period
+                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; width: 100%; font-size:15px;">
+                  <i class="fa fa-calendar"></i>&nbsp;&nbsp; &nbsp;  Period &nbsp; &nbsp; 
                   <span></span> <i class="fa fa-caret-down"></i>
                 </div>
               </div>
@@ -282,7 +282,7 @@
     <!-- Bootstrap -->
     <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="{{asset('vendors/moment/moment.min.js')}}"></script>
+    <script src="{{asset('vendors/moment/moment.js')}}"></script>
     <script src="{{asset('vendors/bootstrap-daterangepicker/daterangepickers.js')}}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{asset('build/js/custom.min.js')}}"></script>
@@ -325,12 +325,12 @@
         borderColor: 'rgba(255, 232, 84, 1)',
         borderWidth: 2,
         fill: false,
-        data: [30,25,20,28,40,20,21]
+        data: [30,25,20,28,30,20,21]
       }, {
         type: 'bar',
         label: 'Dataset 2',
         backgroundColor: 'rgba(55, 176, 76, 1)',
-        data: [30,25,20,28,40,20,21],
+        data: [30,25,20,28,30,20,21],
         borderColor: 'white',
         borderWidth: 2
       }]
@@ -349,7 +349,7 @@
           },
           tooltips: {
             mode: 'index',
-            intersect: true
+            intersect: false
           }
         }
       });
