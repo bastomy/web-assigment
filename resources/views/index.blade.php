@@ -138,7 +138,7 @@
                     <span style="color: #707070; font-size: 20px;">AVERAGE PURCHASE VALUE</span>                  
                   </div>
                   <div class="col-md-3">
-                    <select class="form-control" style="display: inline-block; font-size: 10px;">
+                    <select class="form-control" style="display: inline-block; font-size: 10px;" onchange="UpdateBar()">
                       @for ($i = 6; $i <=12 ; $i++)
                         <option>Last {{$i}} months</option>
                       @endfor
@@ -313,10 +313,20 @@
         }, cb);
     
         cb(start, end);
-    
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+            chartData.datasets.forEach(function(dataset) {
+            dataset.data = dataset.data.map(function() {
+                return getRandomInt(50);
+              });
+            });
+            window.myMixedChart.update();
+        });
     });
   </script>
   <script>
+    function getRandomInt(max) {
+       return Math.floor(Math.random() * Math.floor(max));
+    }
     var chartData = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [{
@@ -325,12 +335,28 @@
         borderColor: 'rgba(255, 232, 84, 1)',
         borderWidth: 2,
         fill: false,
-        data: [30,25,20,28,30,20,21]
+        data: [
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50)
+        ]
       }, {
         type: 'bar',
         label: 'Dataset 2',
         backgroundColor: 'rgba(55, 176, 76, 1)',
-        data: [30,25,20,28,30,20,21],
+        data: [
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50),
+          getRandomInt(50)
+        ],
         borderColor: 'white',
         borderWidth: 2
       }]
@@ -354,5 +380,14 @@
         }
       });
     };
+
+    function UpdateBar() {
+      chartData.datasets.forEach(function(dataset) {
+        dataset.data = dataset.data.map(function() {
+          return getRandomInt(50);
+        });
+      });
+      window.myMixedChart.update();
+    }
   </script>
 </html>
